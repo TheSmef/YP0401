@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Getting Posts!</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<div>
+  <div>
+    <div>
+      <div th:each="el : ${listPost}">
+        <p th:text="${el.id}"></p>
+        <p th:text="${el.name}"></p>
+        <p th:text="${el.description}"></p>
+        <p th:text="${el.work_schedule}"></p>
+        <p th:text="${el.salary}"></p>
+        <p th:text="${el.share}"></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+</body>
+</html>

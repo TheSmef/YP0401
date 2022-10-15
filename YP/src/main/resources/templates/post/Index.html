@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting POST!</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<h1>Должности</h1>
+<form action="post/filter-direct" method="get">
+    <input type="text" placeholder="Search" name="searchName">
+    <input type="submit" value="Найти прямое совпадение">
+</form>
+
+<form action="post/filter-contains" method="get">
+    <input type="text" placeholder="Search" name="searchName">
+    <input type="submit" value="Найти">
+</form>
+
+<div>
+    <div>
+        <div>
+            <div th:each="el : ${listPost}">
+                <p th:text="${el.id}"></p>
+                <p th:text="${el.name}"></p>
+                <p th:text="${el.description}"></p>
+                <p th:text="${el.work_schedule}"></p>
+                <p th:text="${el.salary}"></p>
+                <p th:text="${el.share}"></p>
+            </div>
+        </div>
+    </div>
+</div>
+<a href="/post/add">Добавить</a>
+</body>
+</html>

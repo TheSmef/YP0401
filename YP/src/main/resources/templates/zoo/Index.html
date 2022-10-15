@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting ZOO!</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<h1>Животные</h1>
+<form action="zoo/filter" method="get">
+    <input type="text" placeholder="Search" name="searchName">
+    <input type="submit" value="Найти">
+</form>
+
+<div>
+    <div>
+        <div>
+            <div th:each="el : ${listAnimal}">
+                <p th:text="${el.id}"></p>
+                <p th:text="${el.name}"></p>
+                <p th:text="${el.age}"></p>
+                <p th:text="${el.description}"></p>
+                <p th:text="${el.mass}"></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<a href="/zoo/add">Добавить</a>
+
+
+</body>
+</html>
