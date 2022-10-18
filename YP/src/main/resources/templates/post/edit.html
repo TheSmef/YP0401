@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <div th:insert="fragments/header :: headerMain"></div>
+</head>
+<body>
+<form th:object="${post}" method="post">
+    <input th:field="*{name}" type="text" th:value = "${post.name}" name="name" placeholder="name"/> <br/>
+    <div th:if="${#fields.hasErrors()}" th:errors="*{name}" style="color: red"></div><br/>
+    <input th:field="*{salary}" th:value = "${post.salary}" type="text" name="salary" placeholder="salary"/> <br/>
+    <div  th:if="${#fields.hasErrors()}" th:errors="*{salary}" style="color: red"></div><br/>
+    <input th:field="*{description}" th:value = "${post.description}" type="text" name="description" placeholder="description"/> <br/>
+    <div  th:if="${#fields.hasErrors()}" th:errors="*{description}" style="color: red"></div><br/>
+    <input th:field="*{work_schedule}" type="text" th:value = "${post.work_schedule}" name="work_schedule" placeholder="work_schedule"/> <br/>
+    <div th:if="${#fields.hasErrors()}" th:errors="*{work_schedule}" style="color: red"></div><br/>
+    <input th:field="*{share}" type="text" th:value = "${post.share}" name="share" placeholder="share"/> <br/>
+    <div th:if="${#fields.hasErrors()}" th:errors="*{share}" style="color: red"></div><br/>
+  <input type="submit" value="Отправить данные" class="btn btn-primary"> <br/>
+  <a th:href="'/post/detail/' + ${post.id}" class="btn btn-secondary">Назад</a>
+</body>
+</html>

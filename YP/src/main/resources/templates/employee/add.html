@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <div th:insert="fragments/header :: headerMain"></div>
+</head>
+<body>
+<form th:object="${employee}" method="post">
+    <input th:field="*{lastname}" type="text" name="lastname" placeholder="lastname"/> <br/>
+    <div th:if="${#fields.hasErrors()}" th:errors="*{lastname}" style="color: red"></div><br/>
+    <input th:field="*{firstname}" type="text" name="firstname" placeholder="firstname"/> <br/>
+    <div th:if="${#fields.hasErrors()}" th:errors="*{firstname}" style="color: red"></div><br/>
+    <input th:field="*{otch}" type="text" name="otch" placeholder="otch"/> <br/>
+    <div th:if="${#fields.hasErrors()}" th:errors="*{otch}" style="color: red"></div><br/>
+    <input th:field="*{age}" type="text" name="age" placeholder="age"/> <br/>
+    <div th:if="${#fields.hasErrors()}" th:errors="*{age}" style="color: red"></div><br/>
+    <input th:field="*{passport}" type="text" name="passport" placeholder="passport"/> <br/>
+    <div th:if="${#fields.hasErrors()}" th:errors="*{passport}" style="color: red"></div><br/>
+    <input type="submit" value="Отправить данные"  class="btn btn-primary"> <br/>
+</form>
+</body>
+</html>

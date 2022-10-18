@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <div th:insert="fragments/header :: headerMain"></div>
+</head>
+<body>
+<form th:object="${employee}" method="post">
+    <input th:field="*{lastname}" type="text" th:value="${employee.lastname}" name="lastname" placeholder="lastname"/> <br/>
+    <div th:if="${#fields.hasErrors()}" th:errors="*{lastname}" style="color: red"></div><br/>
+    <input th:field="*{firstname}" th:value="${employee.firstname}" type="text" name="firstname" placeholder="firstname"/> <br/>
+    <div th:if="${#fields.hasErrors()}" th:errors="*{firstname}" style="color: red"></div><br/>
+    <input th:field="*{otch}" type="text" th:value="${employee.otch}" name="otch" placeholder="otch"/> <br/>
+    <div th:if="${#fields.hasErrors()}" th:errors="*{otch}" style="color: red"></div><br/>
+    <input th:field="*{age}" type="text" th:value="${employee.age}" name="age" placeholder="age"/> <br/>
+    <div th:if="${#fields.hasErrors()}" th:errors="*{age}" style="color: red"></div><br/>
+    <input th:field="*{passport}" type="text" th:value="${employee.passport}" name="passport" placeholder="passport"/> <br/>
+    <div th:if="${#fields.hasErrors()}" th:errors="*{passport}" style="color: red"></div><br/>
+    <input type="submit" value="Отправить данные" class="btn btn-primary"> <br/>
+    <a th:href="'/employee/detail/' + ${employee.id}" class="btn btn-secondary">Назад</a>
+</body>
+</html>
