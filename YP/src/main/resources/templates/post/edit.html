@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <div th:insert="fragments/header :: headerMain"></div>
+</head>
+<body>
+<form method="post">
+  <input type="text" name="name" th:value="${post.name}" placeholder="name"/> <br/>
+  <input type="text" name="salary" th:value="${post.salary}" placeholder="salary"/> <br/>
+  <input type="text" name="description" th:value="${post.description}" placeholder="description"/> <br/>
+  <input type="text" name="workschedule" th:value="${post.work_schedule}" placeholder="workschedule"/> <br/>
+  <input type="text" name="share" th:value="${post.share}" placeholder="share"/> <br/>
+  <input type="submit" value="Отправить данные" class="btn btn-primary"> <br/>
+  <a th:href="'/post/detail/' + ${post.id}" class="btn btn-secondary">Назад</a>
+</body>
+</html>

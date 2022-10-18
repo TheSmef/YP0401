@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Подробнее</title>
+  <div th:insert="fragments/header :: headerMain"></div>
+</head>
+<body>
+<div>
+    <div th:each="el : ${em}">
+        <p th:text="${el.id}"></p>
+        <p th:text="${el.lastname}"></p>
+        <p th:text="${el.firstname}"></p>
+        <p th:text="${el.otch}"></p>
+        <p th:text="${el.age}"></p>
+        <p th:text="${el.passport}"></p>
+        <a th:href="'/employee/edit/'+${el.id}" class="btn btn-secondary">Редактировать</a> </br>
+        <a th:href="'/employee/del/'+${el.id}"  class="btn btn-secondary">Удалить</a>
+    </div>
+</div>
+<a th:href="'/employee/'" class="btn btn-secondary">Назад</a>
+</body>
+</html>
