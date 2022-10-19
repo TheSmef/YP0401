@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Изменение</title>
+    <div th:insert="fragments/header :: headerMain"></div>
+</head>
+<body>
+<form method="post">
+  <input type="text" name="name" th:value="${animal.name}" placeholder="name"/> <br/>
+  <input type="text" name="age" th:value="${animal.age}" placeholder="age"/> <br/>
+  <input type="text" name="description" th:value="${animal.description}" placeholder="description"/> <br/>
+  <input type="text" name="mass" th:value="${animal.mass}" placeholder="mass"/> <br/>
+  <input type="submit" value="Отправить данные" class="btn btn-primary"> <br/>
+</form>
+<a th:href="'/zoo/detail/' + ${animal.id}" class="btn btn-secondary">Назад</a>
+</body>
+</html>

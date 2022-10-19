@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Подробнее</title>
+  <div th:insert="fragments/header :: headerMain"></div>
+</head>
+<body>
+<div>
+  <div>
+    <div>
+      <div th:each="el : ${animal}">
+        <p th:text="${el.id}"></p>
+        <p th:text="${el.name}"></p>
+        <p th:text="${el.age}"></p>
+        <p th:text="${el.description}"></p>
+        <p th:text="${el.mass}"></p>
+        <a th:href="'/zoo/edit/'+${el.id}">Редактировать</a>
+        <a th:href="'/zoo/del/'+${el.id}">Удалить</a>
+      </div>
+      <a th:href="'/zoo/'">Назад</a>
+    </div>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Getting Employees!</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <div th:insert="fragments/header :: headerMain"></div>
+</head>
+<body>
+<div>
+  <div>
+    <div>
+      <div th:each="el : ${listEmployee}">
+        <p th:text="${el.id}"></p>
+        <p th:text="${el.lastname}"></p>
+        <p th:text="${el.firstname}"></p>
+        <p th:text="${el.otch}"></p>
+        <p th:text="${el.age}"></p>
+        <p th:text="${el.passport}"></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+</body>
+</html>
