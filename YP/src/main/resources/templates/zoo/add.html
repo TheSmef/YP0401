@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <div th:insert="fragments/header :: headerMain"></div>
+</head>
+<body>
+<form th:object="${zoo}" method="post">
+  <input th:field="*{name}" type="text" name="name" placeholder="name"/> <br/>
+    <div th:if="${#fields.hasErrors()}" th:errors="*{name}" style="color: red"></div><br/>
+    <input th:field="*{age}" type="text" name="age" placeholder="age"/> <br/>
+    <div th:if="${#fields.hasErrors()}" th:errors="*{age}" style="color: red"></div><br/>
+    <input th:field="*{description}" type="text" name="description" placeholder="description"/> <br/>
+    <div th:if="${#fields.hasErrors()}" th:errors="*{description}" style="color: red"></div><br/>
+    <input th:field="*{mass}" type="text" name="mass" placeholder="mass"/> <br/>
+    <div th:if="${#fields.hasErrors()}" th:errors="*{mass}" style="color: red"></div><br/>
+    <input type="submit" value="Отправить данные"> <br/>
+</form> <br>
+</body>
+</html>
