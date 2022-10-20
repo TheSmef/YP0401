@@ -59,4 +59,30 @@ public class EmployeeController {
         employeeRepository.deleteById(id);
         return "redirect:/employee";
     }
+
+    @GetMapping("employee/addpost")
+    public String addPostView(Model model){
+        Iterable<Post> post = postRepository.findAll();
+        List<Post> postArrayList = new ArrayList<>();
+        for (Post pass:
+                post) {
+            postArrayList.add(pass);
+        }
+        Iterable<Employee> employees = employeeRepository.findAll();
+        List<Employee> employeeArrayList = new ArrayList<>();
+        for (Employee em:
+                employees) {
+            employeeArrayList.add(em);
+        }
+        model.addAttribute("employee", employeeArrayList);
+        model.addAttribute("posts", postArrayList);
+        return "employee/addpost";
+    }
+    @PostMapping("employee/addpost")
+    public String addPost(@RequestParam Long post, @RequestParam Long employee){
+        Employee employeeTarget = employeeRepository.findById(employee).orElseThrow();
+        employeeTarget.getPosts().add(postRepository.findById(post).orElseThrow());
+        employeeRepository.save(employeeTarget);
+        return "redirect:/employee";
+    }
 }
