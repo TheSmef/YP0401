@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Employees!</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <div th:insert="fragments/header :: headerMain"></div>
+</head>
+<body>
+<form action="employee/filter-direct" method="get">
+    <input type="text" placeholder="Search" name="searchName">
+    <input type="submit" value="Найти прямое совпадение" class="btn btn-primary">
+</form>
+
+<form action="employee/filter-contains" method="get">
+    <input type="text" placeholder="Search" name="searchName">
+    <input type="submit" value="Найти" class="btn btn-primary">
+</form>
+<div>
+    <div>
+        <div>
+            <div th:each="el : ${listEmployee}">
+                <p th:text="${el.lastname}"></p>
+                <p th:text="${el.firstname}"></p>
+                <a th:href="'/employee/detail/' + ${el.id}" class="btn btn-secondary">Подробнее</a>
+            </div>
+        </div>
+    </div>
+</div>
+<a th:href="'/employee/addpost/'" class="btn btn-primary">Добавить должность</a>
+</body>
+</html>
