@@ -70,6 +70,6 @@ public class Product {
 
     @Min(0)
     private int expire;
-    @ManyToOne(optional = true, cascade = CascadeType.ALL)
+    @ManyToOne(optional = true)
     private Category category;
 }

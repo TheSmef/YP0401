@@ -117,7 +117,7 @@ public class CategoryController {
 
     @GetMapping("category/del-product/{id}")
     public String productDelete(@PathVariable() Long id){
-        productRepository.deleteById(id);
+        productRepository.delete(productRepository.findById(id).orElseThrow());
         return "redirect:/category";
     }
 }

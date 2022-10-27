@@ -68,7 +68,7 @@ public class OrderPurchase {
     private Employee employee;
     @OneToMany(mappedBy = "orderPurchase", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
     private Collection<OrderProduct> orderProducts;
-    @ManyToOne(optional = true)
+    @ManyToOne(optional = true, cascade = CascadeType.REMOVE)
     private Point point;
 
 }

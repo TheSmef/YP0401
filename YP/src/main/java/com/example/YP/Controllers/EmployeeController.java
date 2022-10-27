@@ -123,6 +123,8 @@ public class EmployeeController {
             model.addAttribute("employee", employee);
             return "employee/edit";
         }
+        employee.setOwner(employeeRepository.findById(employee.getId()).orElseThrow().getOwner());
+        employee.setPosts(employeeRepository.findById(employee.getId()).orElseThrow().getPosts());
         employeeRepository.save(employee);
         return "redirect:/employee/detail/" + employee.getId();
     }
