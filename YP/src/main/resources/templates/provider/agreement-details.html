@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Подробнее</title>
+    <div th:insert="fragments/header :: headerMain"></div>
+</head>
+<body>
+<div>
+        <p th:text="${el.id}"></p>
+        <p th:text="${el.date}"></p>
+        <h4>Содержимое закупки</h4>
+        <div th:each="elp : ${el.purchases}">
+            <p th:text="${elp.amount}">
+            <p th:text="${elp.product.name} + ' ' + ${elp.product.cost}"> <br/>
+            <p th:text="${elp.cost}">
+            <div><a th:href="'/purchase/purchaseproduct-delete/'+${elp.id}" class="btn btn-secondary">Удалить закупку</a></div>
+        </div>
+        <div><a th:href="'/purchase/purchaseproduct-add/'+${el.id}"  class="btn btn-primary">Добавить закупку</a></div>
+        <div><a th:href="'/purchase/agreement-del/'+${el.id}"  class="btn btn-primary">Удалить</a></div>
+    </div>
+</div>
+<a th:href="'/purchase/detail/' + ${el.getCompany().id}" class="btn btn-secondary">Назад</a>
+</body>
+</html>

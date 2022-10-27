@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <div th:insert="fragments/header :: headerMain"></div>
+</head>
+<body>
+<div>
+    <div th:each="el : ${category}">
+        <p th:text="${el.name}"></p>
+        <a th:href="'/category/edit/'+${el.id}" class="btn btn-secondary">Редактировать</a> </br>
+        <a th:href="'/category/del/'+${el.id}"  class="btn btn-secondary">Удалить</a>
+        <h1>Товары категории:</h1>
+        <div th:each="elp : ${el.products}">
+            <p th:text="${elp.name}"></p>
+            <p th:text="${elp.cost}"></p>
+            <p th:text="${elp.expire}"></p>
+            <a th:href="'/category/del-product/'+${elp.id}"  class="btn btn-secondary">Удалить</a>
+        </div>
+        <a th:href="'/category/add-product/' + ${el.id}" class="btn btn-primary">Добавить продукт</a>
+    </div>
+</div>
+<a th:href="'/category/'" class="btn btn-secondary">Назад</a>
+</body>
+</html>

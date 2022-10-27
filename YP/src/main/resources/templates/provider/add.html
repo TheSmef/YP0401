@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <div th:insert="fragments/header :: headerMain"></div>
+</head>
+<body>
+<form th:object="${providerCompany}" method="post">
+    <div><input type="text" name="name" placeholder="Введите название организации"/></div>
+    <div th:if="${#fields.hasErrors()}" th:errors="*{name}" style="color: red"></div><br/>
+    <div> <input type="text" name="place" placeholder="Название адрес организации"/> </div>
+    <div th:if="${#fields.hasErrors()}" th:errors="*{place}" style="color: red"></div><br/>
+    <div><input  type="text" name="lastname" placeholder="Название фамилию контакта"/> <br/></div>
+    <div th:object = "${contactProvider}" th:if="${#fields.hasErrors()}" th:errors="*{lastname}" style="color: red"></div><br/>
+    <div><input type="text" name="firstname" placeholder="Название имя контакта"/> <br/></div>
+    <div th:object = "${contactProvider}" th:if="${#fields.hasErrors()}" th:errors="*{firstname}" style="color: red"></div><br/>
+    <div><input  type="text" name="otch" placeholder="Название отчество контакта"/> <br/></div>
+    <div th:object = "${contactProvider}" th:if="${#fields.hasErrors()}" th:errors="*{otch}" style="color: red"></div><br/>
+    <div><input  type="text" name="number" placeholder="Название контактный номер"/> <br/></div>
+    <div th:object = "${contactProvider}" th:if="${#fields.hasErrors()}" th:errors="*{number}" style="color: red"></div><br/>
+    <input type="submit" value="Отправить данные" class="btn btn-primary"> <br/>
+</form>
+</body>
+</html>
+

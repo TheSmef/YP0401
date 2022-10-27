@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+  <title>Spring Security Example </title>
+</head>
+<body>
+<center>
+<p th:object="${user}" th:text="${error}"></p>
+<form th:object="${employee}"  th:action="@{/registration}" method="post">
+  <label> Фамилия:</label>
+  <div><input type="text" name="lastname" placeholder="Напишите фамилию"/></div>
+  <div th:if="${#fields.hasErrors()}" th:errors="*{lastname}" style="color: red"></div><br/>
+  <label> Имя:</label>
+  <div><input type="text" name="firstname" placeholder="Напишите имя"/></div>
+  <div th:if="${#fields.hasErrors()}" th:errors="*{firstname}" style="color: red"></div><br/>
+  <label> Отчество:</label>
+  <div><input type="text" name="otch" placeholder="Напишите отчество"/></div>
+  <div th:if="${#fields.hasErrors()}" th:errors="*{otch}" style="color: red"></div><br/>
+  <label> Паспорт:</label>
+  <div><input type="text" name="passport" placeholder="Напишите номер и серию паспорта"/></div>
+  <div th:if="${#fields.hasErrors()}" th:errors="*{passport}" style="color: red"></div><br/>
+  <label> Логин :</label>
+  <div><input type="text" name="username" placeholder="Напишите логин"/></div>
+  <div th:object="${user}" th:if="${#fields.hasErrors()}" th:errors="*{username}" style="color: red"></div><br/>
+  <label> Адрес электронной почты:</label>
+  <div><input type="email" name="email" placeholder="Напишите адрес электронной почты"/></div>
+  <div th:object="${user}" th:if="${#fields.hasErrors()}" th:errors="*{email}" style="color: red"></div><br/>
+  <label> Пароль:</label>
+  <div><input type="password" name="password" placeholder="Напишите пароль"/></div>
+  <div th:object="${user}" th:if="${#fields.hasErrors()}" th:errors="*{password}" style="color: red"></div><br/>
+  <br/>
+  <div><input type="submit" value="Регистрация"/></div>
+  <a th:href="'/login'">Авторизация</a>
+</form>
+</center>
+</body>
+</html>

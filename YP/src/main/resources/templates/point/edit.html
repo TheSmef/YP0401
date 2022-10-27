@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <div th:insert="fragments/header :: headerMain"></div>
+</head>
+<body>
+<form th:object="${point}" method="post">
+    <input th:field="*{address}" type="text" name="address" placeholder="Введите адрес"/> <br/>
+    <div th:if="${#fields.hasErrors()}" th:errors="*{address}" style="color: red"></div><br/>
+    <input th:field="*{schedule}" type="text" name="schedule" placeholder="Название расписание"/> <br/>
+    <div th:if="${#fields.hasErrors()}" th:errors="*{schedule}" style="color: red"></div><br/>
+    <input type="submit" value="Отправить данные" class="btn btn-primary"> <br/>
+</form>
+<a th:href="'/order/detail/' + ${point.id}" class="btn btn-secondary">Назад</a>
+</body>
+</html>

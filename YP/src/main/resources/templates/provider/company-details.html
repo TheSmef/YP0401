@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Подробнее</title>
+    <div th:insert="fragments/header :: headerMain"></div>
+</head>
+<body>
+<div>
+        <p th:text="${el.name}"></p>
+        <p th:text="${el.place}"></p>
+        <p th:text="${el.providerContact.lastname}"></p>
+        <p th:text="${el.providerContact.firstname}"></p>
+        <p th:if="${el.providerContact.otch} != null" th:text="${el.providerContact.otch}"></p>
+        <p th:text="${el.providerContact.number}"></p>
+        <h4>Договоры закупок</h4>
+        <div th:each="elp : ${el.agreements}">
+            <p th:text="${elp.id}"></p>
+            <p th:text="${elp.date}"></p>
+            <a th:href="'/purchase/agreement-details/'+${elp.id}"  class="btn btn-secondary">Информация о поставке</a>
+        </div>
+        <div><a th:href="'/purchase/agreement-add/'+${el.id}"  class="btn btn-primary">Добавить договор поставки</a></div>
+        <div><a th:href="'/purchase/edit/'+${el.id}"  class="btn btn-primary">Редактировать</a></div>
+        <div><a th:href="'/purchase/del/'+${el.id}"  class="btn btn-primary">Удалить</a></div>
+</div>
+<a th:href="'/purchase/'" class="btn btn-secondary">Назад</a>
+</body>
+</html>

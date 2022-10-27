@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <div th:insert="fragments/header :: headerMain"></div>
+</head>
+<body>
+<form th:object="${employee}"  method="post">
+  <label> Фамилия:</label>
+  <div><input type="text" name="lastname" placeholder="Напишите фамилию"/></div>
+  <div th:if="${#fields.hasErrors()}" th:errors="*{lastname}" style="color: red"></div><br/>
+  <label> Имя:</label>
+  <div><input type="text" name="firstname" placeholder="Напишите имя"/></div>
+  <div th:if="${#fields.hasErrors()}" th:errors="*{firstname}" style="color: red"></div><br/>
+  <label> Отчество:</label>
+  <div><input type="text" name="otch" placeholder="Напишите отчество"/></div>
+  <div th:if="${#fields.hasErrors()}" th:errors="*{otch}" style="color: red"></div><br/>
+  <label> Паспорт:</label>
+  <div><input type="text" name="passport" placeholder="Напишите номер и серию паспорта"/></div>
+  <div th:if="${#fields.hasErrors()}" th:errors="*{passport}" style="color: red"></div><br/>
+  <div><input type="submit" value="Регистрация"/></div>
+</form>
+</body>
+</html>

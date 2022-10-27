@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Подробнее</title>
+    <div th:insert="fragments/header :: headerMain"></div>
+</head>
+<body>
+<div>
+        <p th:text="${el.address}"></p>
+        <p th:text="${el.schedule}"></p>
+        <h4>Заказы пункта</h4>
+        <div th:each="elp : ${el.orderPurchases}">
+            <p th:text="${elp.date}"></p>
+            <p th:text="${elp.employee.lastname}"></p>
+            <p th:text="${elp.employee.firstname}"></p>
+            <p th:text="${elp.employee.otch}"></p>
+            <a th:href="'/order/order-details/'+${elp.id}"  class="btn btn-secondary">Информация о заказе</a>
+        </div>
+        <div><a th:href="'/order/order-add/'+${el.id}"  class="btn btn-primary">Добавить заказ</a></div>
+        <div><a th:href="'/order/edit/'+${el.id}"  class="btn btn-primary">Редактировать</a></div>
+        <div><a th:href="'/order/del/'+${el.id}"  class="btn btn-primary">Удалить</a></div>
+</div>
+<a th:href="'/order/'" class="btn btn-secondary">Назад</a>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ЫЫЫЫ</title>
+    <div th:insert="fragments/header :: headerMain"></div>
+</head>
+<body>
+<form method="post">
+    <select name = "employee">
+        <div th:each="element : ${employee}">
+            <option th:value="${element.id}" th:text="${element.lastname} + ' ' + ${element.firstname}  + ' ' + ${element.otch}"></option>
+        </div>
+    </select>
+    <select name = "post">
+        <div th:each="element : ${posts}">
+            <option th:value="${element.id}" th:text="${element.name}"></option>
+        </div>
+    </select>
+    <input type="submit" value="Отправить данные"  class="btn btn-primary"> <br/>
+</form>
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Point!</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <div th:insert="fragments/header :: headerMain"></div>
+</head>
+<body>
+<h1>Пункты выдачи</h1>
+<form action="../order/filter-direct" method="get">
+    <input type="text" placeholder="Search" name="searchName">
+    <input type="submit" value="Найти прямое совпадение" class="btn btn-primary">
+</form>
+
+<form action="../order/filter-contains" method="get">
+    <input type="text" placeholder="Search" name="searchName">
+    <input type="submit" value="Найти" class="btn btn-primary">
+</form>
+
+<div>
+    <div>
+        <div>
+            <div th:each="el : ${listPoint}">
+                <h3 th:text="${el.address}"></h3>
+                <p th:text="${el.schedule}"></p>
+                <a th:href="'/order/detail/' + ${el.id}" class="btn btn-secondary">Подробнее</a>
+            </div>
+        </div>
+    </div>
+</div>
+<a href="/order/add" class="btn btn-primary">Добавить</a>
+</body>
+</html>

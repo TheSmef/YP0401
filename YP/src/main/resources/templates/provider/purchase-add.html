@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <div th:insert="fragments/header :: headerMain"></div>
+</head>
+<body>
+<form method="post">
+    <input type="text" name="amount" placeholder="Введите кол-во"/> <br/>
+    <input type="text" name="cost" placeholder="Введите сумму закупки"/> <br/>
+    <div th:if="${error} != null"><p th:text="${error}" style="color: red"></p></div> <br/>
+    <select name = "product">
+        <div th:each="element : ${product}">
+            <option th:value="${element.id}" th:text="${element.name} + ' ' + ${element.cost}"></option>
+        </div>
+    </select> <br/>
+    <input type="submit" value="Отправить данные"  class="btn btn-primary"> <br/>
+</form>
+</body>
+</html>

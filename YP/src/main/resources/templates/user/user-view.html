@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <div th:insert="fragments/header :: headerMain"></div>
+</head>
+<body>
+<h1>Пользователи</h1>
+<form action="../user/filter-direct" method="get">
+    <input type="text" placeholder="Search" name="searchName">
+    <input type="submit" value="Найти прямое совпадение" class="btn btn-primary">
+</form>
+
+<form action="../user/filter-contains" method="get">
+    <input type="text" placeholder="Search" name="searchName">
+    <input type="submit" value="Найти" class="btn btn-primary">
+</form>
+<div>
+  <div th:each="el : ${userList}">
+    <h2 th:text="${el.username}"></h2>
+    <p th:text="${el.email}"></p>
+    <p th:text="${el.roles}"></p>
+      <a th:href="'/user/delete/' + ${el.id}" class="btn btn-primary">Удалить пользователя</a>
+    <a th:href="'/user/edit/' + ${el.id}" class="btn btn-primary">Редактировать пользователя</a>
+  </div>
+</div>
+</body>
+</html>

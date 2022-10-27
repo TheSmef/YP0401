@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Provider!</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <div th:insert="fragments/header :: headerMain"></div>
+</head>
+<body>
+<h1>Поставщики</h1>
+<form action="../purchase/filter-direct" method="get">
+    <input type="text" placeholder="Search" name="searchName">
+    <input type="submit" value="Найти прямое совпадение" class="btn btn-primary">
+</form>
+
+<form action="../purchase/filter-contains" method="get">
+    <input type="text" placeholder="Search" name="searchName">
+    <input type="submit" value="Найти" class="btn btn-primary">
+</form>
+
+<div>
+    <div>
+        <div>
+            <div th:each="el : ${listProviders}">
+                <h3 th:text="${el.name}"></h3>
+                <p th:text="${el.place}"></p>
+                <p th:text="${el.providerContact.lastname}"></p>
+                <p th:text="${el.providerContact.firstname}"></p>
+                <p th:text="${el.providerContact.otch}"></p>
+                <p th:text="${el.providerContact.number}"></p>
+                <a th:href="'/purchase/detail/' + ${el.id}" class="btn btn-secondary">Подробнее</a>
+            </div>
+        </div>
+    </div>
+</div>
+<a href="/purchase/add" class="btn btn-primary">Добавить</a>
+</body>
+</html>
